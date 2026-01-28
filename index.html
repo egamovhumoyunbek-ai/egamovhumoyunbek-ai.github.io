@@ -4,49 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Egamov Humoyunbek - Portfolio</title>
+    <!-- Google Search Console verification tag - BU YERGA O'Z KODINGIZNI JOYLASHTIRING -->
+    <meta name="google-site-verification" content="SIZNING_UZUN_KODINGIZ_BU_YERDA" />
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* MATRIX EFFECT STIL */
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: black;
-            overflow-x: hidden;
-            font-family: monospace;
-        }
-
-        #matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* kontent ustida emas, fon sifatida */
-        }
-
-        .cyber-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) perspective(600px) rotateX(15deg);
-            color: #00ff41;
-            font-size: 3rem;
-            text-shadow: 0 0 15px #00ff41;
-            animation: float 4s ease-in-out infinite;
-            pointer-events: none; /* klikni bloklamaydi */
-        }
-
-        @keyframes float {
-            0% { transform: translate(-50%, -50%) rotateX(10deg); }
-            50% { transform: translate(-50%, -55%) rotateX(20deg); }
-            100% { transform: translate(-50%, -50%) rotateX(10deg); }
-        }
-    </style>
 </head>
 <body>
-    <!-- MATRIX CANVAS -->
     <canvas id="matrix-rain"></canvas>
-    <div class="cyber-text">MATRIX SYSTEM</div>
 
     <header>
         <nav>
@@ -88,6 +51,7 @@
             <p>Qisqacha tavsif: Foydalanuvchilar bilan suhbatlashuvchi sun'iy intellekt asosidagi chatbot.</p>
             <a href="https://example.com/project1" target="_blank">Link</a>
         </div>
+        <!-- Boshqa loyihalarni ham qo'shishingiz mumkin -->
     </section>
 
     <section id="contact">
@@ -96,48 +60,6 @@
         <a href="https://t.me/CEO_ECONOMY" target="_blank" class="telegram-btn">Telegram: @CEO_ECONOMY</a>
     </section>
 
-    <script>
-        // MATRIX JS
-        const canvas = document.getElementById("matrix-rain");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = "アァカサタナハマヤャラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = [];
-
-        for (let x = 0; x < columns; x++) {
-            drops[x] = Math.random() * canvas.height;
-        }
-
-        function draw() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = "#00ff41";
-            ctx.font = fontSize + "px monospace";
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(draw, 33);
-
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
